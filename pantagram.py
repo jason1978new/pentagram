@@ -6,7 +6,7 @@ function: patagram chart
 
 import turtle as tt
 
-def drawpartofpata(T,size):
+def drawpentagram(T,size):
     '''
     绘制五角星
     :return:
@@ -28,7 +28,7 @@ def main():
 
     size = 50
     while size < 100:
-        drawpartofpata(T,size)
+        drawpentagram(T,size)
         size += 10
 
     T.exitonclick()
