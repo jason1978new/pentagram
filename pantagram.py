@@ -1,38 +1,60 @@
 """
-editor: jason
-time:22/09/2018
-function: patagram chart
+    作者：梁斌
+    功能：五角星的绘制
+    版本：3.0
+    日期：03/08/2017
+    新增功能：加入循环操作绘制重复不同大小的图形
+    新增功能：使用迭代函数绘制重复不同大小的图形
 """
+import turtle
 
-import turtle as tt
 
-def drawpentagram(T,size):
-    '''
-    绘制五角星
-    :return:
-    '''
-    count = 0
-    while count < 5:
-        T.forward(size)
-        T.right(144)
+def draw_pentagram(size):
+    """
+        绘制五角星
+    """
+    # 计数器
+    count = 1
+    while count <= 5:
+        turtle.forward(size)
+        turtle.right(144)
+        # count = count + 1
         count += 1
 
 
+def draw_recursive_pentagram(size):
+    """
+        迭代绘制五角星
+    """
+    # 计数器
+    count = 1
+    while count <= 5:
+        turtle.forward(size)
+        turtle.right(144)
+        # count = count + 1
+        count += 1
+
+    # 五角星绘制完成，更新参数
+    size += 10
+    if size <= 100:
+        draw_recursive_pentagram(size)
+
+
 def main():
-    T=tt.Turtle()
-    T.penup()
-    T.backward(10)
-    T.pendown()
-    T.pensize(1)
-    T.pencolor('red')
+    """
+        主函数
+    """
+
+    turtle.penup()
+    turtle.backward(200)
+    turtle.pendown()
+    turtle.pensize(2)
+    turtle.pencolor('red')
 
     size = 50
-    while size < 100:
-        drawpentagram(T,size)
-        size += 10
+    draw_recursive_pentagram(size)
 
-    T.exitonclick()
+    turtle.exitonclick()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
